@@ -50,10 +50,20 @@ function showAlert(msg, type){
 }
 
 function checkItem(item){
-    const items = Array.from(itemList.children).map((item) => item.textContent.trim().toLowerCase());
-    return items.includes(item.trim().toLowerCase());      
-}
 
+    const items = LocalStorage.getItemsFromStorage()    
+    console.log(items);
+    itemPresent = false;
+
+    items.forEach(sItem => {
+        if(sItem.toLowerCase() == item.toLowerCase().trim()){
+            itemPresent = true;
+        };
+    })
+
+    return itemPresent;
+    
+}
 
 function enterItem(item){
 
