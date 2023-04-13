@@ -34,9 +34,10 @@ function addItem(e){
         }
 
         showAlert('Item Added Successfully', 'success');
-        itemInput.value = '';       
+        itemInput.value = '';
+        updateUI()      
     }
-    updateUI()
+    
 }
 
 function showAlert(msg, type){
@@ -130,7 +131,9 @@ function clearList(){
         itemList.removeChild(itemList.firstChild);
     }
     localStorage.clear();
-    updateUI()  
+    editModeOn = false;
+    editUI();
+    updateUI();  
 }
 
 function updateUI(){
